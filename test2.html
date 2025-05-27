@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态时间显示</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      .time-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem 3rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      #date {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-weight: 300;
+      }
+
+      #time {
+        font-size: 2.5rem;
+        color: #1e3c72;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="time-container">
+      <div id="date"></div>
+      <div id="time"></div>
+    </div>
+
+    <script>
+      function updateTime() {
+        const options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour12: false,
+          timeZone: "Asia/Shanghai",
+        };
+
+        const now = new Date();
+
+        // 显示日期（年月日）
+        document.getElementById("date").textContent = now.toLocaleDateString(
+          "zh-CN",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }
+        );
+
+        // 显示时间（时分秒）
+        document.getElementById("time").textContent = now.toLocaleTimeString(
+          "zh-CN",
+          {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          }
+        );
+      }
+
+      // 初始加载时更新
+      updateTime();
+      // 每秒更新一次
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
