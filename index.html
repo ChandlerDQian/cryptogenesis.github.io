@@ -1,78 +1,27 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>简单交互页面</title>
-    <style>
-      body {
-        font-family: "Segoe UI", system-ui, sans-serif;
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 0 20px;
-        background-color: #f0f2f5;
-      }
+    <title>GMGN.AI - Crypto Trading App</title>
+    <meta name="description" content="GMGN.AI - Cryptocurrency Trading Application" />
+    <meta name="author" content="GMGN.AI" />
 
-      .container {
-        background: white;
-        padding: 2rem;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
+    <meta property="og:title" content="GMGN.AI - Crypto Trading App" />
+    <meta property="og:description" content="GMGN.AI - Cryptocurrency Trading Application" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-      h1 {
-        color: #1a73e8;
-        margin-bottom: 1.5rem;
-      }
-
-      .demo-btn {
-        background: #1a73e8;
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: transform 0.1s, background 0.3s;
-      }
-
-      .demo-btn:hover {
-        background: #1557b0;
-        transform: translateY(-1px);
-      }
-
-      #output {
-        margin-top: 1.5rem;
-        padding: 1rem;
-        background: #f8f9fa;
-        border-radius: 6px;
-      }
-    </style>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
   </head>
+
   <body>
-    <div class="container">
-      <h1>欢迎来到交互演示</h1>
-      <button class="demo-btn" onclick="handleClick()">点击这里</button>
-      <div id="output">点击按钮查看效果</div>
-    </div>
-
-    <script>
-      const messages = [
-        "你好，世界！",
-        "今天天气不错",
-        "JavaScript 正在运行",
-        "点击次数：",
-      ];
-      let clickCount = 0;
-
-      function handleClick() {
-        clickCount++;
-        const output = document.getElementById("output");
-        const randomIndex = Math.floor(Math.random() * messages.length);
-        output.innerHTML = `${messages[randomIndex]} ${
-          randomIndex === 3 ? clickCount : ""
-        }`;
-        output.style.color = `hsl(${Math.random() * 360}deg, 70%, 45%)`;
-      }
-    </script>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
